@@ -7,7 +7,7 @@ let lastOffsetX = 0;
 let hslColor = 0;
 
 canvasElement.width = window.innerWidth;
-canvasElement.heigh = window.innerHeight;
+canvasElement.height = window.innerHeight;
 
 window.innerWidth > 800 ? canvas.font = "4em Comic Sans MS" : canvas.font = "2.5em Comic Sans MS"  ;
 
@@ -21,6 +21,11 @@ canvas.strokeStyle = 'purple';
 canvas.lineCap = "round";
 canvas.lineJoin = "round";
 canvas.lineWidth = 50;
+
+function resizeCanvas() {
+	canvasElement.width = window.innerWidth;
+	canvasElement.height = window.innerHeight;
+}
 
 function startFromClick(e) {
 	isDrawing = true;
@@ -56,3 +61,7 @@ canvasElement.addEventListener('touchmove', draw);
 canvasElement.addEventListener('mouseout', () => isDrawing = false);
 canvasElement.addEventListener('mouseup', () => isDrawing = false);
 canvasElement.addEventListener('touchend', () => isDrawing = false);
+
+window.addEventListener('onload', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', resizeCanvas);
