@@ -59,8 +59,14 @@ canvasElement.addEventListener('mousemove', draw);
 canvasElement.addEventListener('mouseout', () => isDrawing = false);
 canvasElement.addEventListener('mouseup', () => isDrawing = false);
 
-canvasElement.addEventListener('touchstart', startFromClick);
-canvasElement.addEventListener('touchmove', draw);
+canvasElement.addEventListener('touchstart', function(e) {
+	e.preventDefault();
+	startFromClick(e);
+});
+canvasElement.addEventListener('touchmove', function(e) {
+	e.preventDefault();
+	draw(e);
+});
 canvasElement.addEventListener('touchend', () => isDrawing = false);
 
 
