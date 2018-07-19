@@ -13,8 +13,8 @@ window.innerWidth > 800 ? canvas.font = "4em Comic Sans MS" : canvas.font = "2.5
 
 canvas.fillStyle = 'rgba(128,0,128 , .2)';
 canvas.textAlign = "center";
-canvas.fillText('Press or touch',canvasElement.width / 2, canvasElement.height / 2.4);
-canvas.fillText('and',canvasElement.width / 2, canvasElement.height / 2);
+canvas.fillText('Press and hold',canvasElement.width / 2, canvasElement.height / 2.4);
+canvas.fillText('And',canvasElement.width / 2, canvasElement.height / 2);
 canvas.fillText('Feel free',canvasElement.width / 2, canvasElement.height / 1.7);
 
 canvas.strokeStyle = 'purple';
@@ -55,13 +55,7 @@ function draw(e) {
 }
 
 canvasElement.addEventListener('mousedown', startFromClick);
-canvasElement.addEventListener('touchstart', startFromClick);
 canvasElement.addEventListener('mousemove', draw);
-canvasElement.addEventListener('touchmove', draw);
 canvasElement.addEventListener('mouseout', () => isDrawing = false);
 canvasElement.addEventListener('mouseup', () => isDrawing = false);
-canvasElement.addEventListener('touchend', () => isDrawing = false);
 
-window.addEventListener('onload', resizeCanvas);
-window.addEventListener('resize', resizeCanvas);
-window.addEventListener('orientationchange', resizeCanvas);
