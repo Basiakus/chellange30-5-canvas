@@ -59,3 +59,9 @@ canvasElement.addEventListener('mousemove', draw);
 canvasElement.addEventListener('mouseout', () => isDrawing = false);
 canvasElement.addEventListener('mouseup', () => isDrawing = false);
 
+canvasElement.addEventListener('touchstart', startFromClick);
+canvasElement.addEventListener('touchmove', draw);
+canvasElement.addEventListener('touchend', () => isDrawing = false);
+
+
+
